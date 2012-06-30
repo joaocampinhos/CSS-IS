@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+/*
+ * CSS Image Slider v0.1
+ *
+ * https://github.com/joaocampinhos/CSS-IS
+ *
+ * Made by João Campinhos http://joao.campinhos.pt
+ *
+ */
+
+/*------------------------------------*\
+  $CONFIGURATIONS
+\*------------------------------------*/
+
+.slideshow .slider {
+  height: 408px;  /* Especify The height of the imges */
+}
+
+.slideshow .slider img{
+  position:absolute;
+  z-index: 1; /* So they all stay at the same lvl */
+}
+
+
+
+/*------------------------------------*\
+  $FADE_ANIMATION
+\*------------------------------------*/
+
+/* Fade in */
+
+@-webkit-keyframes fin {
+  0%  { opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+@-moz-keyframes fin {
+  0%  { opacity: 0; }
+  100%{ opacity: 1; }
+}
+
+/* Fade out */
+
+@-webkit-keyframes fout {
+  0%  { opacity: 1; }
+  100%{ opacity: 0; }
+}
+
+@-moz-keyframes fout {
+  0%  { opacity: 1; }
+  100%{ opacity: 0; }
+}
+
+
+
+/*------------------------------------*\
+  $SLIDER
+\*------------------------------------*/
+
+.slider img:not(:target)  {
+
+  -webkit-animation: fout 1.5s ;
+  -webkit-animation-fill-mode: forwards;
+
+  -moz-animation: fout 1.5s;
+  -moz-animation-fill-mode: forwards;
+
+}
+
+#one, .slider img:target {
+
+  -webkit-animation: fin 1s;
+  -moz-animation: fin 1s;
+
+}
+
+
+
+/*------------------------------------*\
+  $NAVIGATION
+\*------------------------------------*/
+
+.slideshow .navigation {
+  text-align: center;
+  padding: 20px;
+}
+
+.slideshow .navigation a {
+  background-color: #74bb93;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#74bb93), to(#54a06c));
+  background-image: -webkit-linear-gradient(top, #74bb93, #54a06c);
+  background-image: -moz-linear-gradient(top, #74bb93, #54a06c);
+  border: 2px solid #54a06c;
+  display: inline-block;
+  width:15px;
+  height:15px;
+  border-radius: 20px;
+}
+
+.slideshow .navigation a:active{
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#54a06c), to(#74bb93));
+  border: 2px solid #fff;
+}
